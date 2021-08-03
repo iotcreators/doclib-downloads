@@ -5,11 +5,9 @@ import argparse
 import json
 import logging
 import traceback
-
-logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
-log = logging.getLogger(__name__)
-
 import efento_decoder
+
+log = logging.getLogger(__name__)
 
 TESTDATA = "0a06282c02403cf61001183c2217080110f48cf386062096042a0a000000000000000000002216080210f48cf3860620642a0a0000000000000000000028ed98f38606381a4001482582010f383637393937303331393539343133"
 
@@ -28,8 +26,7 @@ if __name__ == '__main__':
     
     ns = cmdlineParser.parse_args()
     
-    if ns.loglevel is not None:
-        log.setLevel(ns.loglevel)
+    logging.basicConfig(force=True, level=ns.loglevel, format="%(asctime)s | %(levelname)s | %(name)s | %(message)s")                                
 
     log.debug("loglevel = %s" % (str(ns.loglevel)))
     log.debug("payload = %s" % (str(ns.payload)))
