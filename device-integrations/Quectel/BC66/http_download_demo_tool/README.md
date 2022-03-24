@@ -15,10 +15,10 @@ This software is not meant to substitute or emulate a real world application (fo
 ## Settings File
 The default settings file is config.json file. It is used to configure essential parameters necessary to run the download.
 Here's the description of such parameters:
-* "remote_host": the address of the remote host (ipv4 format)
-* "remote_path": the path of the file to be downloaded via HTTP GET (it has to be in the form of /path)
-* "remote_port": the remote port of the http server to connect to. Usually the standard port is 80, you can however insert any value between 1 and 65535
-* "local_port": the local port of the connection. Any value between 1 and 65535 is admitted. Just for reference, the value reported on BC66 manual is 9000.
+* "remote_host": the address of the remote host (ipv4 format). Variable type: string.
+* "remote_path": the path of the file to be downloaded via HTTP GET (it has to be in the form of /path). Variable type: string.
+* "remote_port": the remote port of the http server to connect to. Usually the standard port is 80, you can however insert any value between 1 and 65535. Variable type: integer.
+* "local_port": the local port of the connection. Any value between 1 and 65535 is admitted. Just for reference, the value reported on BC66 manual is 9000. Variable type: integer.
 ## CLI parameters
 * -h: optional parameter, displays the help for the application
 * -p (or --Port) <SERIAL_PORT>: mandatory parameter, used to input your serial port which your will communicate to your modem with. Example (on windows) -p COM4.
