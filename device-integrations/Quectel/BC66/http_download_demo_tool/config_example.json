@@ -1,0 +1,6 @@
+{
+	"remote_host": "127.0.0.1",
+	"remote_path": "/data",
+	"remote_port": 3000,
+	"local_port": 9000
+}
