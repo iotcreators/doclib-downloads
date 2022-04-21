@@ -90,7 +90,7 @@ class FileDownMan(Loggable):
         self.print_stdout_and_file(f'Received {str(size)} bytes.')
         if self.is_first_chunk_http:
             self.is_first_chunk_http = False
-            headers_digest = parse_http_headers(read_bytes)
+            headers_digest = self.parse_http_headers(read_bytes)
             first_byte_data_index = headers_digest['first_data_byte']
             self.total_down_size = headers_digest['total_size']
             self.remaining_bytes = self.total_down_size
@@ -101,6 +101,28 @@ class FileDownMan(Loggable):
         self.remaining_bytes -= len(read_bytes)
         self.print_stdout_and_file(f'Written {str(size)} bytes to file.')
         return len(read_bytes)
+
+    def parse_http_headers(self, data):
+        """This function parses the content length header value and returns the index
+        of the first byte of actual data"""
+        lines = data.decode('cp437').split('\n')
+        total_length = 0
+        byte_count = 0
+        self.print_stdout_and_file("Receiving headers")
+        for line in lines:
+            self.print_stdout_and_file(line)
+            header_pair = line.rstrip().split(':')
+            header_key = header_pair[0].strip()
+            if header_key == 'Content-Length':
+                total_length = int(header_pair[1].strip())
+            byte_count += (len(line) + 1)  # +1 takes into account the \n lost in the split
+            if line.rstrip() == '':
+                break
+
+        return {
+            'total_size': total_length,
+            'first_data_byte': byte_count
+        }
 
     def down_direct_mode(self):
         """this function manages the download in direct access mode"""

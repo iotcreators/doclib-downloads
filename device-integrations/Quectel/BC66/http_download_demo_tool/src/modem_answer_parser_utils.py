@@ -40,23 +40,3 @@ def extract_qird_info(qird_ans):
             'bytes_in_buf': int(ans_fields[1].strip())
         }
     return qird_info
-
-
-def parse_http_headers(data):
-    """This function parses the content length header value and returns the index of the first byte of actual data"""
-    lines = data.decode('cp437').split('\n')
-    total_length = 0
-    byte_count = 0
-    for line in lines:
-        header_pair = line.rstrip().split(':')
-        header_key = header_pair[0].strip()
-        if header_key == 'Content-Length':
-            total_length = int(header_pair[1].strip())
-        byte_count += (len(line) + 1)  # +1 takes into account the \n lost in the split
-        if line.rstrip() == '':
-            break
-
-    return {
-        'total_size': total_length,
-        'first_data_byte': byte_count
-    }
