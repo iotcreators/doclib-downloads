@@ -1,0 +1,463 @@
+{
+	"info": {
+		"_postman_id": "a64de619-32b9-4490-9f7f-d65fccce43f7",
+		"name": "SCS download server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Download file object by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/file/{{fileId}}",
+					"host": [
+						"{{SCS-base-url}}{{SCS-download-server-base}}"
+					],
+					"path": [
+						"file",
+						"{{fileId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload binary content of file by id",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Marco/Downloads/bin800k.bin"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/file/{{fileId}}/upload",
+					"host": [
+						"{{SCS-base-url}}{{SCS-download-server-base}}"
+					],
+					"path": [
+						"file",
+						"{{fileId}}",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download file by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/file/{{fileId}}/content",
+					"host": [
+						"{{SCS-base-url}}{{SCS-download-server-base}}"
+					],
+					"path": [
+						"file",
+						"{{fileId}}",
+						"content"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download all files objects",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/file",
+					"host": [
+						"{{SCS-base-url}}{{SCS-download-server-base}}"
+					],
+					"path": [
+						"file"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download file metadata by id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/file/{{fileId}}/meta",
+					"host": [
+						"{{SCS-base-url}}{{SCS-download-server-base}}"
+					],
+					"path": [
+						"file",
+						"{{fileId}}",
+						"meta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download file by hashname",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/{{projectId}}/{{fileHashName}}/content",
+					"host": [
+						"{{SCS-base-url}}{{SCS-download-server-base}}"
+					],
+					"path": [
+						"{{projectId}}",
+						"{{fileHashName}}",
+						"content"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Download file meta by hashname",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/{{projectId}}/{{fileHashName}}/meta",
+					"host": [
+						"{{SCS-base-url}}{{SCS-download-server-base}}"
+					],
+					"path": [
+						"{{projectId}}",
+						"{{fileHashName}}",
+						"meta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new file",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"filename\",\r\n    \"version\": \"1.2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/file",
+					"host": [
+						"{{SCS-base-url}}{{SCS-download-server-base}}"
+					],
+					"path": [
+						"file"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete file by id",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"user-agent": true,
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/file/{{fileId}}",
+					"host": [
+						"{{SCS-base-url}}{{SCS-download-server-base}}"
+					],
+					"path": [
+						"file",
+						"{{fileId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "download file from public api",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.scs.iot.telekom.com/downloadsvr/file/{{fileId}}/content",
+					"protocol": "https",
+					"host": [
+						"api",
+						"scs",
+						"iot",
+						"telekom",
+						"com"
+					],
+					"path": [
+						"downloadsvr",
+						"file",
+						"{{fileId}}",
+						"content"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "{{file-down-api-password}}",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "{{file-down-api-username}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "projectId",
+			"value": ""
+		},
+		{
+			"key": "fileHashName",
+			"value": ""
+		},
+		{
+			"key": "fileId",
+			"value": ""
+		},
+		{
+			"key": "file-down-api-username",
+			"value": ""
+		},
+		{
+			"key": "file-down-api-password",
+			"value": ""
+		}
+	]
+}
