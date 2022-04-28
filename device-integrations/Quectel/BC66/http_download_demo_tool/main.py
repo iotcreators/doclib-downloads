@@ -1,3 +1,5 @@
+import signal
+
 import serial
 from serial import SerialException
 from src.config_manager import *
@@ -5,6 +7,11 @@ from src.file_down_man import *
 from src.network_context import NetworkContext
 from src.serial_man import SerialMan
 serial_man = None
+
+
+def terminate_connection(signum, frame):
+    if serial_man is not None:
+        serial_man.send_command('AT+QICLOSE=0')
 
 
 def main():
@@ -29,10 +36,12 @@ def main():
         print('Program terminated unexpectedly for ' + str(e))
     finally:
         try:
-            if serial_man is not None:
-                serial_man.send_command('AT+QICLOSE=0')
+            terminate_connection(None, None)
         except NameError:
             pass
+
+
+signal.signal(signal.SIGINT, terminate_connection)
 
 
 if __name__ == "__main__":
