@@ -246,12 +246,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/{{projectId}}/{{fileHashName}}/content",
+					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/{{tenantId}}/{{fileHashName}}/content",
 					"host": [
 						"{{SCS-base-url}}{{SCS-download-server-base}}"
 					],
 					"path": [
-						"{{projectId}}",
+						"{{tenantId}}",
 						"{{fileHashName}}",
 						"content"
 					]
@@ -287,12 +287,12 @@
 					}
 				},
 				"url": {
-					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/{{projectId}}/{{fileHashName}}/meta",
+					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/{{tenantId}}/{{fileHashName}}/meta",
 					"host": [
 						"{{SCS-base-url}}{{SCS-download-server-base}}"
 					],
 					"path": [
-						"{{projectId}}",
+						"{{tenantId}}",
 						"{{fileHashName}}",
 						"meta"
 					]
@@ -440,7 +440,7 @@
 	],
 	"variable": [
 		{
-			"key": "projectId",
+			"key": "tenantId",
 			"value": ""
 		},
 		{
