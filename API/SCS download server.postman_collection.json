@@ -33,13 +33,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/file/{{fileId}}",
+					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/file/:fileId",
 					"host": [
 						"{{SCS-base-url}}{{SCS-download-server-base}}"
 					],
 					"path": [
 						"file",
-						"{{fileId}}"
+						":fileId"
 					]
 				}
 			},
@@ -73,13 +73,13 @@
 					]
 				},
 				"url": {
-					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/file/{{fileId}}/upload",
+					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/file/:fileId/upload",
 					"host": [
 						"{{SCS-base-url}}{{SCS-download-server-base}}"
 					],
 					"path": [
 						"file",
-						"{{fileId}}",
+						":fileId",
 						"upload"
 					]
 				}
@@ -114,13 +114,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/file/{{fileId}}/content",
+					"raw": "{{SCS-base-url}}{{SCS-download-server-base}}/file/:fileId/content",
 					"host": [
 						"{{SCS-base-url}}{{SCS-download-server-base}}"
 					],
 					"path": [
 						"file",
-						"{{fileId}}",
+						":fileId",
 						"content"
 					]
 				}
