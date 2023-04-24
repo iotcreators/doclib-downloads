@@ -8,7 +8,6 @@ class XLogicNbiotPulseMeterDecoder(Decoder):
 
     def decode(self, data):
         try:
-            # data_decoded = data.decode("utf8", errors='ignore')
             byte_array = bytes.fromhex(data)
             data_decoded = byte_array.decode('utf-8')
             imei_start = data_decoded.find("IMEI: ")
@@ -23,12 +22,12 @@ class XLogicNbiotPulseMeterDecoder(Decoder):
             temperature = 0
             mode = 0
 
-            if (len(data)) > 58:
-                impulse1 = data[3] << 24 | data[2] << 16 | data[1] << 8 | data[0]
-                impulse2 = data[7] << 24 | data[6] << 16 | data[5] << 8 | data[4] << 0
+            if (len(byte_array)) > 58:
+                impulse1 = byte_array[3] << 24 | byte_array[2] << 16 | byte_array[1] << 8 | byte_array[0]
+                impulse2 = byte_array[7] << 24 | byte_array[6] << 16 | byte_array[5] << 8 | byte_array[4] << 0
 
-                data_as_int = [b for b in data]
-                voltage = data[8] + 200
+                data_as_int = [b for b in byte_array]
+                voltage = byte_array[8] + 200
                 mode = int(data_as_int[9])
                 tamper = int(data_as_int[10])
                 temperature = int(data_as_int[11])
