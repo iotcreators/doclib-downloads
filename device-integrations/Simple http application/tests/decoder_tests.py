@@ -1,5 +1,0 @@
-from src.decoders.x_logic_nbiot_pulse_meter import XLogicNbiotPulseMeterDecoder
-
-decoder = XLogicNbiotPulseMeterDecoder()
-decoded = decoder.decode("06000000000000003200000000000d0a494d45493a203335313536313131323033373933380d0a494d53493a20323332303331373231303438373131")
-print(decoded)
