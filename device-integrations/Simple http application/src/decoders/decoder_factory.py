@@ -1,4 +1,5 @@
 from src.decoders.dragino_nmds120 import DraginoNmdS120Decoder
+from src.decoders.dragino_nse01 import DraginoNse01Decoder
 from src.decoders.no_decoder import NoDecoder
 from src.decoders.x_logic_nbiot_pulse_meter import XLogicNbiotPulseMeterDecoder
 
@@ -8,6 +9,8 @@ def get_decoder(name):
         decoder = XLogicNbiotPulseMeterDecoder()
     elif name == "dragino-nmds120":
         decoder = DraginoNmdS120Decoder()
+    elif name == "dragino-nse01":
+        decoder = DraginoNse01Decoder()
     else:
         decoder = NoDecoder()
     return decoder

@@ -3,7 +3,8 @@ import argparse
 cmdlineParser = argparse.ArgumentParser(description="Performs the e2e test complete.")
 # Send protocol
 cmdlineParser.add_argument("--decoder", metavar='<decoder>', dest="decoder", required=False,
-                           choices=["x-logic-nbiot-pulse-meter"], default="no-decoder",
+                           choices=["x-logic-nbiot-pulse-meter", "dragino-nmds120",
+                                    "dragino-nse01"], default="no-decoder",
                            help="Decoder that will decoder device data.")
 
 ns = cmdlineParser.parse_args()
