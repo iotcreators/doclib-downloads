@@ -25,7 +25,7 @@ class DraginoNse01Decoder(DraginoDecoder):
             decoded["timestamp_readable"] = \
                 datetime.datetime.fromtimestamp(unix_timestamp_raw).strftime('%Y-%m-%d %H:%M:%S')
             if decoded["sw_version"] >= 132:
-                index = 50
+                index = 54
                 data_array = []
                 data_len = len(data)
                 while index < data_len:
