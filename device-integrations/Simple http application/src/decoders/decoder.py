@@ -2,7 +2,7 @@ class Decoder:
     def __init__(self):
         self._name = ""
 
-    def decode(self, data):
+    def decode(self, data, version=0):
         """This function must return a dictionary"""
         return {}
 

@@ -1,14 +1,13 @@
 import datetime
+from src.decoders.dragino import DraginoDecoder
 
-from src.decoders.decoder import Decoder
 
-
-class DraginoNmdS120Decoder(Decoder):
+class DraginoNmdS120Decoder(DraginoDecoder):
     def __init__(self,):
         super().__init__()
         self._name = "dragino-nmds120"
 
-    def decode(self, data):
+    def decode(self, data, version=0):
         try:
             sw_version_raw_hex = data[16:20]
             battery_lvl_raw_hex = data[20:24]

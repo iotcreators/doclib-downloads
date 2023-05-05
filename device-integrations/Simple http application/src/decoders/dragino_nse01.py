@@ -7,16 +7,16 @@ class DraginoNse01Decoder(DraginoDecoder):
         super().__init__()
         self._name = "dragino-nse01"
 
-    def decode(self, data):
+    def decode(self, data, version=0):
         try:
             decoded = super().decode(data)
-            interrupt_raw_hex = data[28:30]
             soil_moisture_raw_hex = data[30:34]
             soil_temperature_raw_hex = data[34:38]
             soil_conductivity_raw_hex = data[38:42]
             soil_dielectric_raw_hex = data[42:46]
+            interrupt_raw_hex = data[28:30]
+            decoded["interrupt"]: int(interrupt_raw_hex, 16)
             unix_timestamp_raw = int(data[46:54], 16)
-            decoded["interrupt"] = int(interrupt_raw_hex, 16)
             decoded["soil_moisture"] = int(soil_moisture_raw_hex, 16) / 100
             decoded["soil_temperature_celsius"] = int(soil_temperature_raw_hex, 16) / 100
             decoded["soil_conductivity"] = int(soil_conductivity_raw_hex, 16)
