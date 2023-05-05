@@ -6,7 +6,7 @@ class XLogicNbiotPulseMeterDecoder(Decoder):
         super().__init__()
         self._name = "x-logic-nbiot-pulse-meter"
 
-    def decode(self, data):
+    def decode(self, data, version=0):
         try:
             byte_array = bytes.fromhex(data)
             data_decoded = byte_array.decode('utf-8')
