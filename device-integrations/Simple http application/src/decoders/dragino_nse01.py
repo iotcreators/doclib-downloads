@@ -9,14 +9,16 @@ class DraginoNse01Decoder(DraginoDecoder):
 
     def decode(self, data, version=0):
         try:
+            self._mod_len = 2
             decoded = super().decode(data)
-            soil_moisture_raw_hex = data[30:34]
-            soil_temperature_raw_hex = data[34:38]
-            soil_conductivity_raw_hex = data[38:42]
-            soil_dielectric_raw_hex = data[42:46]
-            interrupt_raw_hex = data[28:30]
-            decoded["interrupt"]: int(interrupt_raw_hex, 16)
-            unix_timestamp_raw = int(data[46:54], 16)
+            start = self._start_index
+            decoded["interrupt"] = int(data[start:start+2], 16)
+            start += 2
+            soil_moisture_raw_hex = data[start:start+4]
+            soil_temperature_raw_hex = data[start+4:start+8]
+            soil_conductivity_raw_hex = data[start+8:start+12]
+            soil_dielectric_raw_hex = data[start+12:start+16]
+            unix_timestamp_raw = int(data[start+16:start+24], 16)
             decoded["soil_moisture"] = int(soil_moisture_raw_hex, 16) / 100
             decoded["soil_temperature_celsius"] = int(soil_temperature_raw_hex, 16) / 100
             decoded["soil_conductivity"] = int(soil_conductivity_raw_hex, 16)
@@ -25,7 +27,7 @@ class DraginoNse01Decoder(DraginoDecoder):
             decoded["timestamp_readable"] = \
                 datetime.datetime.fromtimestamp(unix_timestamp_raw).strftime('%Y-%m-%d %H:%M:%S')
             if decoded["sw_version"] >= 132:
-                index = 54
+                index = start + 24
                 data_array = []
                 data_len = len(data)
                 while index < data_len:
