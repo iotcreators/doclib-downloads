@@ -1,3 +1,4 @@
+from src.decoders.dragino_cpn01 import DraginoCpn01Decoder
 from src.decoders.dragino_n95s31b import DraginoN95s31bDecoder
 from src.decoders.dragino_nds03a import DraginoNds03aDecoder
 from src.decoders.dragino_nlms01 import DraginoNlms01Decoder
@@ -23,6 +24,8 @@ def get_decoder(name):
         decoder = DraginoN95s31bDecoder()
     elif name == "dragino-nds03a":
         decoder = DraginoNds03aDecoder()
+    elif name == "dragino-cpn01":
+        decoder = DraginoCpn01Decoder()
     else:
         decoder = NoDecoder()
     return decoder
