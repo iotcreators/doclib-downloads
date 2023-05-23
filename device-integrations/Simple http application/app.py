@@ -10,7 +10,7 @@ ns = get_arg_parser()
 decoder = get_decoder(ns.decoder)
 
 
-@app.route('/response-tests', methods=["POST"])
+@app.route('/decode', methods=["POST"])
 def decode():
     decoded = {}
     try:
