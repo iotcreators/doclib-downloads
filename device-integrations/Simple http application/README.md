@@ -23,6 +23,7 @@ The following devices are supported for decoding:
 - "dragino-n95s31b"
 - "dragino-nds03a"
 - "dragino-cpn01"
+- "advantech-wise-2140"
 
 #Input data
 The input data of the decoders is a ascii hex string representing the raw payload sent by the device, as forwarded by the iotcreators backend.
