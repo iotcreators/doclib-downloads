@@ -1,3 +1,4 @@
+from src.decoders.advantech_wise_2140 import AdvantechWise2140
 from src.decoders.dragino_cpn01 import DraginoCpn01Decoder
 from src.decoders.dragino_n95s31b import DraginoN95s31bDecoder
 from src.decoders.dragino_nds03a import DraginoNds03aDecoder
@@ -26,6 +27,8 @@ def get_decoder(name):
         decoder = DraginoNds03aDecoder()
     elif name == "dragino-cpn01":
         decoder = DraginoCpn01Decoder()
+    elif name == "advantech-wise-2140":
+        decoder = AdvantechWise2140()
     else:
         decoder = NoDecoder()
     return decoder
