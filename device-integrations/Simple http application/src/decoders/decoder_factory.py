@@ -7,6 +7,7 @@ from src.decoders.dragino_nmds120 import DraginoNmdS120Decoder
 from src.decoders.dragino_nse01 import DraginoNse01Decoder
 from src.decoders.dragino_nsph01 import DraginoNsph01Decoder
 from src.decoders.no_decoder import NoDecoder
+from src.decoders.st_astra_1b import STAstra1B
 from src.decoders.x_logic_nbiot_pulse_meter import XLogicNbiotPulseMeterDecoder
 
 
@@ -29,6 +30,8 @@ def get_decoder(name):
         decoder = DraginoCpn01Decoder()
     elif name == "advantech-wise-2140":
         decoder = AdvantechWise2140()
+    elif name == "st-astra-1b":
+        decoder = STAstra1B()
     else:
         decoder = NoDecoder()
     return decoder
