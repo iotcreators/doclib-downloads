@@ -6,7 +6,8 @@ cmdlineParser.add_argument("--decoder", metavar='<decoder>', dest="decoder", req
                            choices=["x-logic-nbiot-pulse-meter", "dragino-nmds120",
                                     "dragino-nse01", "dragino-nsph01", "dragino-nlms01",
                                     "dragino-n95s31b", "dragino-nds03a", "dragino-cpn01",
-                                    "advantech-wise-2140", "st-astra-1b"], default="no-decoder",
+                                    "advantech-wise-2140", "st-astra-1b", "nanosensorics-carbonless"],
+                           default="no-decoder",
                            help="Decoder that will decoder device data.")
 
 cmdlineParser.add_argument("--version", metavar='<version>', dest="version", required=False, default=0,
