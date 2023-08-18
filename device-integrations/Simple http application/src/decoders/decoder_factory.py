@@ -6,6 +6,7 @@ from src.decoders.dragino_nlms01 import DraginoNlms01Decoder
 from src.decoders.dragino_nmds120 import DraginoNmdS120Decoder
 from src.decoders.dragino_nse01 import DraginoNse01Decoder
 from src.decoders.dragino_nsph01 import DraginoNsph01Decoder
+from src.decoders.nanosensorics_ampsense import NanosensoricsAmpsense32
 from src.decoders.nanosensorics_carbonless import NanosensoricsCarbonless
 from src.decoders.no_decoder import NoDecoder
 from src.decoders.st_astra_1b import STAstra1B
@@ -35,6 +36,8 @@ def get_decoder(name):
         decoder = STAstra1B()
     elif name == "nanosensorics-carbonless":
         decoder = NanosensoricsCarbonless()
+    elif name == "nanosensorics-ampsense32":
+        decoder = NanosensoricsAmpsense32()
     else:
         decoder = NoDecoder()
     return decoder
